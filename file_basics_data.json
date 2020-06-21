@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Luke Skywalker",
+    "species": "Human",
+    "type": "Jedi",
+    "rank": "Grandmaster",
+    "sabercolor": "green"
+  },
+  {
+    "name": "Leia Organa Solo",
+    "species": "Human",
+    "type": "Politician",
+    "rank": "Chief of State",
+    "sabercolor": "Blue"
+  },
+  {
+    "name": "Han Solo",
+    "species": "Human",
+    "type": "Smuggler",
+    "rank": "General"
+  }
+]

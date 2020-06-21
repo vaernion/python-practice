@@ -19,17 +19,6 @@ class Person:
         print(Person.isSentient)
 
 
-bob = Person("Bob", 200, "Hork-Bajir")
-jim = Person("Jim", 111, "Andalite")
-jim.age = 555
-jim.dies()
-# jim.dies()  # reborn
-
-print(bob.summary())
-print(jim.summary())
-Person.test()
-
-
 class Subperson(Person):
     def isSub(self):
         return True
@@ -38,6 +27,21 @@ class Subperson(Person):
         return f"SUBPERSON: {super().summary()}"
 
 
-nils = Subperson("nils", 1, "human")
+def main():
+    bob = Person("Bob", 200, "Hork-Bajir")
+    jim = Person("Jim", 111, "Andalite")
+    jim.age = 555
+    jim.dies()
+    # jim.dies()  # reborn
 
-print(nils.summary())
+    print(bob.summary())
+    print(jim.summary())
+    Person.test()
+
+    nils = Subperson("nils", 1, "human")
+
+    print(nils.summary())
+
+
+if __name__ == "__main__":
+    main()
