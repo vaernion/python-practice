@@ -81,7 +81,7 @@ class TicTac:
         )
 
     def findAiPos(self):
-        time.sleep(1.2)
+        time.sleep(1.0)
         pos = 0
         gameCopy = TicTac(grid=self.grid, board=self.board.copy())
         boardCache = gameCopy.board.copy()
@@ -98,20 +98,27 @@ class TicTac:
                         gameCopy.board[i] = 0
             return 0
 
+        def randomPos(board):
+            pos = 0
+            while pos == 0:
+                randPos = random.randint(1, len(board))
+                if board[randPos - 1] == 0:
+                    pos = randPos
+            return pos
+
         # try to win
         pos = findWinningPos(gameCopy, self.aiPlayerId)
 
-        # block human's win
-        if pos == 0:
+        # block other players win but not always
+        if pos == 0 and (random.random()) < 0.8:
             gameCopy.board = boardCache
             humanPlayerId = 1 if self.aiPlayerId != 1 else 2
             pos = findWinningPos(gameCopy, humanPlayerId)
 
         # no winners, so pick a random free square
-        while pos == 0:
-            randPos = random.randint(1, self.squares)
-            if self.board[randPos - 1] == 0:
-                pos = randPos
+        if pos == 0:
+            pos = randomPos(self.board)
+
         return pos
 
     @staticmethod
