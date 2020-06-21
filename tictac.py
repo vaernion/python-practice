@@ -33,7 +33,7 @@ class TicTac:
     def printBoard(self):
         clearScreen()
         # print(self.combos)
-        print("Tic-Tac-Toe")
+        print(f"Tic-Tac-Toe x{self.grid}")
 
         for i, v in enumerate(self.board):
             filler = " "
@@ -120,6 +120,7 @@ class TicTac:
 
 def main():
     clearScreen()
+    print("Tic-Tac-Toe")
     game = TicTac(inputIntInRange("Enter grid size from 3 to 5: ", 3, 5))
 
     while game.winner == 0:
@@ -129,10 +130,14 @@ def main():
             print("Board is full, game is a draw")
             break
         game.playerTurn()
-        game.winner = game.findWinner()
+        if game.turn >= (game.grid * 2) - 1:
+            game.winner = game.findWinner()
     else:
         game.printBoard()
         print(f"{'X' if game.winner == 1 else 'O'} won the game!")
+    if input("Restart? y/n ").lower() == "y":
+        main()
 
 
-main()
+if __name__ == "__main__":
+    main()
