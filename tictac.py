@@ -15,9 +15,9 @@ def inputIntInRange(text, x, y, default=None):
                 return default
             num = int(string)
             if not x <= num <= y:
-                raise Exception
-        except:
-            pass
+                raise Exception(f"{num} not between {x} and {y}")
+        except Exception as e:
+            print(e)
         else:
             return num
 

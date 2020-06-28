@@ -7,7 +7,7 @@ pygame.display.set_caption("bounce")
 
 size = width, height = 640, 480
 dx = 10
-dy = 10
+dy = 5
 x = 0
 y = 0
 black = (0, 0, 0)
